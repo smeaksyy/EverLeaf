@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Everleaf</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <svg class="sidebar-logo" width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM26.4 12C26.4 12 28.8 15.6 28.8 20.4C28.8 25.2 24.6 28.8 20.4 28.8C16.2 28.8 12 25.2 12 20.4C12 15.6 14.4 12 14.4 12C14.4 12 16.8 16.8 20.4 16.8C24 16.8 26.4 12 26.4 12Z" fill="#164E3B"/>
+                    <path d="M20.4 16.8C16.8 16.8 14.4 12 14.4 12C14.4 12 12 15.6 12 20.4C12 25.2 16.2 28.8 20.4 28.8C24.6 28.8 28.8 25.2 28.8 20.4C28.8 15.6 26.4 12 26.4 12C26.4 12 24 16.8 20.4 16.8Z" fill="#2F855A"/>
+                </svg>
+                <span class="brand-text">Everleaf</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item" data-view="all-documents">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    All Documents
+                </a>
+                <a href="#" class="nav-item" data-view="categories">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Categories
+                </a>
+                <a href="#" class="nav-item" data-view="recently-added">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    Recently Added
+                </a>
+                <a href="#" class="nav-item" data-view="favorites">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Favorites
+                </a>
+                <a href="#" class="nav-item" data-view="notes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    Leaf Notes & Ideas
+                </a>
+                <a href="#" class="nav-item" data-view="settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Settings <span class="badge">Planned</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="divider"></div>
+                <a href="#" id="logout-btn" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-toggle" id="mobile-toggle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                    <div>
+                        <h1 id="greeting">Welcome back!</h1>
+                        <p class="subtitle">Your digital space is ready for you.</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="global-search" placeholder="Search documents...">
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar" id="user-avatar">?</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body" id="view-dashboard">
+                <!-- Stats Row -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-docs">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value" id="stat-total-docs">-</span>
+                            <span class="stat-label">Total Documents</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-categories">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value" id="stat-categories">-</span>
+                            <span class="stat-label">Categories</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-recent">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value" id="stat-recent">-</span>
+                            <span class="stat-label">Recently Added</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-favorites">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div class="stat-details">
+                            <span class="stat-value" id="stat-favorites">-</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="quick-actions">
+                    <button class="btn-primary" id="btn-add-doc">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Upload Document
+                    </button>
+                    <button class="btn-primary" id="btn-quick-note" style="background-color: #2F855A;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        + Write Note
+                    </button>
+                    <button class="btn-secondary" id="btn-browse-docs">Browse Documents</button>
+                    <button class="btn-secondary" id="btn-manage-categories">Manage Categories</button>
+                </div>
+
+                <!-- Recent Documents Section -->
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Recent Documents</h2>
+                    </div>
+                    
+                    <div id="empty-state" class="empty-state" style="display: none;">
+                        <svg width="80" height="80" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM26.4 12C26.4 12 28.8 15.6 28.8 20.4C28.8 25.2 24.6 28.8 20.4 28.8C16.2 28.8 12 25.2 12 20.4C12 15.6 14.4 12 14.4 12C14.4 12 16.8 16.8 20.4 16.8C24 16.8 26.4 12 26.4 12Z" fill="#E8F5EC"/>
+                            <path d="M20.4 16.8C16.8 16.8 14.4 12 14.4 12C14.4 12 12 15.6 12 20.4C12 25.2 16.2 28.8 20.4 28.8C24.6 28.8 28.8 25.2 28.8 20.4C28.8 15.6 26.4 12 26.4 12C26.4 12 24 16.8 20.4 16.8Z" fill="#A7C4A0"/>
+                        </svg>
+                        <h3>Your Everleaf space is ready.</h3>
+                        <p>Add your first document and start organizing your digital world.</p>
+                        <button class="btn-primary" onclick="document.getElementById('btn-add-doc').click()">Add Your First Document</button>
+                    </div>
+
+                    <div class="table-responsive" id="documents-table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Upload Date</th>
+                                    <th>File Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="documents-tbody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories View (hidden by default) -->
+            <div class="content-body" id="view-categories" style="display: none;">
+                <div class="section-header">
+                    <h2>Categories</h2>
+                    <button class="btn-primary" id="btn-add-category">Add Category</button>
+                </div>
+                <div class="categories-grid" id="categories-container">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Notes & Creative Workspace View (Leaf Notes) -->
+            <div class="content-body" id="view-notes" style="display: none;">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2>🌿 Leaf Notes & Creative Space</h2>
+                        <p class="subtitle" style="margin-top: 0.25rem;">Jot down ideas, to-do lists, quick thoughts, or organize personal reminders in a fun, vibrant board!</p>
+                    </div>
+                    <button class="btn-primary" id="btn-add-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        + New Leaf Note
+                    </button>
+                </div>
+
+                <div id="notes-grid" class="notes-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div id="notes-empty-state" class="empty-state" style="display: none; padding: 3rem 1rem;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🍃 📝</div>
+                    <h3>Your Idea Canvas is Fresh & Clean</h3>
+                    <p>Don't just upload files — write notes, create sticky memos, brainstorm ideas, and organize them your way!</p>
+                    <button class="btn-primary" style="margin-top: 1rem;" onclick="document.getElementById('btn-add-note').click()">Create Your First Note</button>
+                </div>
+            </div>
+            
+            <!-- All Documents View -->
+            <div class="content-body" id="view-all-documents" style="display: none;">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2>📁 All Documents</h2>
+                        <p class="subtitle" style="margin-top: 0.25rem;">Browse and manage all uploaded documents in your digital vault.</p>
+                    </div>
+                    <button class="btn-primary" onclick="document.getElementById('btn-add-doc').click()">+ Upload Document</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Upload Date</th>
+                                <th>File Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-documents-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recently Added View -->
+            <div class="content-body" id="view-recently-added" style="display: none;">
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <h2>⏱️ Recently Added Documents</h2>
+                    <p class="subtitle" style="margin-top: 0.25rem;">Quickly jump back into the most recent files added to your space.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Upload Date</th>
+                                <th>File Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-documents-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Favorites View -->
+            <div class="content-body" id="view-favorites" style="display: none;">
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <h2>⭐ Starred & Favorite Files</h2>
+                    <p class="subtitle" style="margin-top: 0.25rem;">Your priority files and essential quick references.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Upload Date</th>
+                                <th>File Type</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="favorites-documents-tbody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add/Edit Document Modal -->
+    <div class="modal-overlay" id="doc-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="doc-modal-title">Add New Document</h2>
+                <button class="close-modal" aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="doc-form">
+                    <input type="hidden" name="id" id="doc-id">
+                    <input type="hidden" name="csrf_token" class="csrf-input">
+                    <div class="form-group">
+                        <label for="doc-title">Document Title</label>
+                        <input type="text" id="doc-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                            <label for="doc-category" style="margin-bottom: 0;">Category</label>
+                            <button type="button" id="btn-quick-create-cat" style="background: none; border: none; color: var(--everleaf-green); font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0;">+ Create New Category</button>
+                        </div>
+                        <select id="doc-category" name="categoryId" required>
+                            <option value="">Select a category</option>
+                            <option value="1">Academic</option>
+                            <option value="2">Personal</option>
+                            <option value="3">Financial</option>
+                            <option value="4">Office</option>
+                            <option value="5">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="doc-desc">Description</label>
+                        <textarea id="doc-desc" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group" id="file-upload-group">
+                        <label>File Upload</label>
+                        <div class="file-drop-zone" id="file-drop-zone">
+                            <input type="file" id="doc-file" name="file" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg">
+                            <div class="drop-zone-content">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                <p>Drag & drop your file here or click to browse</p>
+                                <span class="file-limits">PDF, DOCX, TXT, PNG, JPG (Max: 10MB)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary cancel-modal">Cancel</button>
+                        <button type="submit" class="btn-primary" id="doc-submit-btn">Upload Document</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="delete-modal">
+        <div class="modal-card modal-sm">
+            <div class="modal-header">
+                <h2>Delete Document</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <strong id="delete-doc-name"></strong>?</p>
+                <p class="text-danger">This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button class="btn-secondary cancel-modal">Cancel</button>
+                    <button class="btn-danger" id="confirm-delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div class="modal-overlay" id="category-modal">
+        <div class="modal-card modal-sm">
+            <div class="modal-header">
+                <h2 id="cat-modal-title">Add Category</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="category-form">
+                    <input type="hidden" name="id" id="cat-id">
+                    <input type="hidden" name="csrf_token" class="csrf-input">
+                    <div class="form-group">
+                        <label for="cat-name">Category Name</label>
+                        <input type="text" id="cat-name" name="name" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary cancel-modal">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Category</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Note Modal (Leaf Notes & Ideas) -->
+    <div class="modal-overlay" id="note-modal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="note-modal-title">✍️ New Leaf Note</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="note-form">
+                    <input type="hidden" name="noteId" id="note-id">
+                    <input type="hidden" name="csrf_token" class="csrf-input">
+                    <div class="form-group">
+                        <label for="note-title">Title / Idea Topic</label>
+                        <input type="text" id="note-title" name="title" placeholder="e.g. Project brainstorm, Study checklist..." required>
+                    </div>
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                            <label for="note-category" style="margin-bottom: 0;">Organize into Category</label>
+                            <button type="button" id="btn-quick-create-cat-note" style="background: none; border: none; color: var(--everleaf-green); font-size: 0.82rem; font-weight: 600; cursor: pointer; padding: 0;">+ Create New Category</button>
+                        </div>
+                        <select id="note-category" name="categoryId">
+                            <option value="">(Uncategorized / Quick Memo)</option>
+                            <option value="1">Academic</option>
+                            <option value="2">Personal</option>
+                            <option value="3">Financial</option>
+                            <option value="4">Office</option>
+                            <option value="5">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Card Color / Mood</label>
+                        <div class="color-picker" style="display: flex; gap: 0.75rem; margin-top: 0.25rem;">
+                            <label style="cursor: pointer;"><input type="radio" name="note-color" value="#FEF9C3" checked> <span style="display:inline-block; width:22px; height:22px; border-radius:50%; background:#FEF9C3; border:2px solid #CA8A04;"></span> Soft Yellow</label>
+                            <label style="cursor: pointer;"><input type="radio" name="note-color" value="#E8F5EC"> <span style="display:inline-block; width:22px; height:22px; border-radius:50%; background:#E8F5EC; border:2px solid #2F855A;"></span> Everleaf Mint</label>
+                            <label style="cursor: pointer;"><input type="radio" name="note-color" value="#E0F2FE"> <span style="display:inline-block; width:22px; height:22px; border-radius:50%; background:#E0F2FE; border:2px solid #0284C7;"></span> Sky Blue</label>
+                            <label style="cursor: pointer;"><input type="radio" name="note-color" value="#FCE7F3"> <span style="display:inline-block; width:22px; height:22px; border-radius:50%; background:#FCE7F3; border:2px solid #DB2777;"></span> Sakura Rose</label>
+                            <label style="cursor: pointer;"><input type="radio" name="note-color" value="#EDE9FE"> <span style="display:inline-block; width:22px; height:22px; border-radius:50%; background:#EDE9FE; border:2px solid #7C3AED;"></span> Lavender</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-content">Write your thoughts or task list</label>
+                        <textarea id="note-content" name="content" rows="6" placeholder="Write whatever you want here! Markdown, thoughts, bullet points..." style="font-family: inherit; line-height: 1.5;"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary cancel-modal">Cancel</button>
+                        <button type="submit" class="btn-primary" id="note-submit-btn">Save Note</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

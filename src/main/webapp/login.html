@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Everleaf</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM26.4 12C26.4 12 28.8 15.6 28.8 20.4C28.8 25.2 24.6 28.8 20.4 28.8C16.2 28.8 12 25.2 12 20.4C12 15.6 14.4 12 14.4 12C14.4 12 16.8 16.8 20.4 16.8C24 16.8 26.4 12 26.4 12Z" fill="#164E3B"/>
+                    <path d="M20.4 16.8C16.8 16.8 14.4 12 14.4 12C14.4 12 12 15.6 12 20.4C12 25.2 16.2 28.8 20.4 28.8C24.6 28.8 28.8 25.2 28.8 20.4C28.8 15.6 26.4 12 26.4 12C26.4 12 24 16.8 20.4 16.8Z" fill="#2F855A"/>
+                </svg>
+                <h2>Welcome back</h2>
+                <p>Sign in to your Everleaf account</p>
+            </div>
+            
+            <div id="error-message" class="alert alert-error" style="display: none;"></div>
+            <div id="success-message" class="alert alert-success" style="display: none;"></div>
+
+            <form id="login-form" action="/everleaf/login" method="POST">
+                <input type="hidden" name="csrf_token" id="csrf_token">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" required>
+                        <button type="button" class="toggle-password" tabindex="-1">
+                            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+            
+            <div class="auth-links">
+                <a href="/everleaf/register">Don't have an account? Create one</a>
+                <a href="/everleaf/" class="back-link">← Back to home</a>
+            </div>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+target/
+*.class
+*.jar
+*.war
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sensitive Config
+db.properties
+
+# Application directories
+uploads/
+
+# Logs
+*.log

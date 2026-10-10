@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everleaf | Your Digital Space, Reimagined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Leaf background -->
+                    <path d="M24 4C12.954 4 4 12.954 4 24C4 35.046 12.954 44 24 44C24 44 44 35.046 44 24C44 12.954 35.046 4 24 4Z" fill="#164E3B"/>
+                    <!-- Document overlay -->
+                    <rect x="16" y="14" width="16" height="20" rx="2" fill="#E8F5EC"/>
+                    <!-- Lines in document -->
+                    <rect x="20" y="20" width="8" height="2" rx="1" fill="#2F855A"/>
+                    <rect x="20" y="24" width="8" height="2" rx="1" fill="#2F855A"/>
+                    <rect x="20" y="28" width="5" height="2" rx="1" fill="#2F855A"/>
+                </svg>
+                Everleaf
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="/everleaf/login" class="login-link">Login</a>
+                <a href="/everleaf/register" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <span class="pill">YOUR DIGITAL SPACE, REIMAGINED</span>
+                <h1>Your Documents. Your Space. Your Planet.</h1>
+                <p>Organize your important documents in one simple digital space. Find what you need, keep everything organized, and embrace a smarter, more paper-conscious way of managing your everyday life.</p>
+                <div class="hero-actions">
+                    <a href="/everleaf/register" class="btn btn-primary">Get Started</a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+                </div>
+                <div class="hero-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F855A" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    Simple organization. Smarter access. Less paper.
+                </div>
+            </div>
+            
+            <div class="hero-image fade-in">
+                <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Dashboard window -->
+                    <rect x="20" y="20" width="560" height="360" rx="16" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+                    <!-- Search bar -->
+                    <rect x="40" y="40" width="300" height="40" rx="8" fill="#FAF9F4" stroke="#E5E7EB"/>
+                    <!-- Tabs -->
+                    <rect x="40" y="100" width="80" height="30" rx="4" fill="#E8F5EC"/>
+                    <rect x="130" y="100" width="100" height="30" rx="4" fill="#FAF9F4"/>
+                    <!-- Document cards -->
+                    <rect x="40" y="150" width="160" height="200" rx="8" fill="#FAF9F4" stroke="#E5E7EB"/>
+                    <rect x="220" y="150" width="160" height="200" rx="8" fill="#FAF9F4" stroke="#E5E7EB"/>
+                    <rect x="400" y="150" width="160" height="200" rx="8" fill="#FAF9F4" stroke="#E5E7EB"/>
+                    <!-- Card contents -->
+                    <rect x="60" y="170" width="40" height="40" rx="4" fill="#E8F5EC"/>
+                    <rect x="60" y="230" width="120" height="8" rx="4" fill="#E5E7EB"/>
+                    <rect x="60" y="250" width="80" height="8" rx="4" fill="#E5E7EB"/>
+
+                    <rect x="240" y="170" width="40" height="40" rx="4" fill="#E8F5EC"/>
+                    <rect x="240" y="230" width="120" height="8" rx="4" fill="#E5E7EB"/>
+                    <rect x="240" y="250" width="80" height="8" rx="4" fill="#E5E7EB"/>
+                    
+                    <rect x="420" y="170" width="40" height="40" rx="4" fill="#E8F5EC"/>
+                    <rect x="420" y="230" width="120" height="8" rx="4" fill="#E5E7EB"/>
+                    <rect x="420" y="250" width="80" height="8" rx="4" fill="#E5E7EB"/>
+                    
+                    <!-- Small leaf accent -->
+                    <path d="M540 60C540 60 520 60 520 80C520 80 520 100 540 100C540 100 560 100 560 80C560 80 560 60 540 60Z" fill="#164E3B"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header fade-in">
+            <span class="pill">FEATURES</span>
+            <h2>Everything in Its Right Place</h2>
+            <p>A simpler way to manage your digital documents.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h3>Digital Document Management</h3>
+                <p>Keep your document records organized in one convenient place.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </div>
+                <h3>Smart Organization</h3>
+                <p>Group documents by category and maintain a structured digital collection.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <h3>Quick Search</h3>
+                <p>Find document records using search and category filters.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                </div>
+                <h3>Paper-Conscious Living</h3>
+                <p>Reduce unnecessary printing by organizing more records digitally.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header fade-in">
+            <h2>How It Works</h2>
+        </div>
+
+        <div class="steps-container">
+            <div class="step fade-in">
+                <div class="step-number">1</div>
+                <h4>Create Your Account</h4>
+                <p>Sign up in seconds to start building your digital space.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">2</div>
+                <h4>Add Your Documents</h4>
+                <p>Upload important files safely and securely.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">3</div>
+                <h4>Organize Them</h4>
+                <p>Group them into logical categories that make sense.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">4</div>
+                <h4>Search and Access</h4>
+                <p>Find what you need instantly whenever you need it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-content fade-in">
+                <h2>About Everleaf</h2>
+                <p>Everleaf was born from a simple idea: that managing our personal and professional documents shouldn't mean drowning in paper or losing files in disorganized digital folders.</p>
+                <p>Built as a B.Tech CSE Project using robust Java technologies, Everleaf is designed to simplify document management and encourage reduced paper use. By keeping everything in one organized digital space, you can embrace a more sustainable, paper-conscious lifestyle.</p>
+            </div>
+            <div class="about-image fade-in">
+                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="200" cy="200" r="180" fill="#FAF9F4"/>
+                    <path d="M200 60C140 60 100 120 100 200C100 280 140 340 200 340C200 340 300 280 300 200C300 120 200 60 200 60Z" fill="#E8F5EC"/>
+                    <path d="M200 120C170 120 150 160 150 200C150 240 170 280 200 280C200 280 250 240 250 200C250 160 200 120 200 120Z" fill="#A7C4A0"/>
+                    <rect x="160" y="140" width="80" height="120" rx="8" fill="white" stroke="#164E3B" stroke-width="4"/>
+                    <line x1="180" y1="170" x2="220" y2="170" stroke="#164E3B" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="180" y1="200" x2="220" y2="200" stroke="#164E3B" stroke-width="4" stroke-linecap="round"/>
+                    <line x1="180" y1="230" x2="200" y2="230" stroke="#164E3B" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta fade-in">
+        <div class="cta-container">
+            <h2>Ready to Make Room for a Paperless Life?</h2>
+            <p>Start organizing your documents with Everleaf.</p>
+            <a href="/everleaf/register" class="btn btn-primary">Create Your Account</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col footer-brand-col">
+                <a href="#" class="nav-brand footer-brand">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Leaf background -->
+                        <path d="M24 4C12.954 4 4 12.954 4 24C4 35.046 12.954 44 24 44C24 44 44 35.046 44 24C44 12.954 35.046 4 24 4Z" fill="#FFFFFF"/>
+                        <!-- Document overlay -->
+                        <rect x="16" y="14" width="16" height="20" rx="2" fill="#164E3B"/>
+                        <!-- Lines in document -->
+                        <rect x="20" y="20" width="8" height="2" rx="1" fill="#FFFFFF"/>
+                        <rect x="20" y="24" width="8" height="2" rx="1" fill="#FFFFFF"/>
+                        <rect x="20" y="28" width="5" height="2" rx="1" fill="#FFFFFF"/>
+                    </svg>
+                    Everleaf
+                </a>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Less Paper. More Possibilities.</p>
+                <p style="color: #9CA3AF; font-size: 0.875rem;">Your digital space for organizing important documents securely and sustainably.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="/everleaf/login">Login</a></li>
+                    <li><a href="/everleaf/register">Register</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h5>Project Info</h5>
+                <ul class="footer-links">
+                    <li>A B.Tech CSE Project</li>
+                    <li>Built with Java, MySQL, and purpose.</li>
+                    <li><a href="#">View Source</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Everleaf. All rights reserved. Made with 🌿 for a greener future.</p>
+        </div>
+    </footer>
+
+    <script src="js/landing.js"></script>
+</body>
+</html>

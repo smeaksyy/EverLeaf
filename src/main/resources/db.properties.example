@@ -1,0 +1,3 @@
+db.url=jdbc:mysql://localhost:3306/everleaf_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+db.username=your_mysql_username
+db.password=your_mysql_password
