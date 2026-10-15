@@ -10,11 +10,15 @@ import java.util.List;
 public class DocumentDAOImpl implements DocumentDAO {
     @Override
     public boolean addDocument(Document doc) {
-        String sql = "INSERT INTO documents (user_id, category_id, title, description, original_filename, storage_filename, mime_type, file_size, favorite) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO documents (user_id, category_id, title, description, original_filename, storage_filename, mime_type, file_size, is_favorite) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, doc.getUserId());
-            pstmt.setInt(2, doc.getCategoryId());
+            if (doc.getCategoryId() > 0) {
+                pstmt.setInt(2, doc.getCategoryId());
+            } else {
+                pstmt.setNull(2, Types.INTEGER);
+            }
             pstmt.setString(3, doc.getTitle());
             pstmt.setString(4, doc.getDescription());
             pstmt.setString(5, doc.getOriginalFilename());
@@ -37,12 +41,13 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     @Override
     public List<Document> getDocumentsByUser(int userId) {
-        return fetchList("SELECT * FROM documents WHERE user_id = ? ORDER BY upload_date DESC", userId);
+        String sql = "SELECT d.*, c.category_name FROM documents d LEFT JOIN categories c ON d.category_id = c.category_id WHERE d.user_id = ? ORDER BY d.upload_date DESC";
+        return fetchList(sql, userId);
     }
 
     @Override
     public Document getDocumentById(int documentId, int userId) {
-        String sql = "SELECT * FROM documents WHERE document_id = ? AND user_id = ?";
+        String sql = "SELECT d.*, c.category_name FROM documents d LEFT JOIN categories c ON d.category_id = c.category_id WHERE d.document_id = ? AND d.user_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, documentId);
@@ -58,15 +63,15 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     @Override
     public List<Document> searchDocuments(int userId, String query) {
-        String sql = "SELECT * FROM documents WHERE user_id = ? AND (title LIKE ? OR description LIKE ? OR original_filename LIKE ?) ORDER BY upload_date DESC";
+        String sql = "SELECT d.*, c.category_name FROM documents d LEFT JOIN categories c ON d.category_id = c.category_id WHERE d.user_id = ? AND (d.title LIKE ? OR d.description LIKE ? OR c.category_name LIKE ?) ORDER BY d.upload_date DESC";
         List<Document> list = new ArrayList<>();
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            String pattern = "%" + query + "%";
             pstmt.setInt(1, userId);
-            String like = "%" + query + "%";
-            pstmt.setString(2, like);
-            pstmt.setString(3, like);
-            pstmt.setString(4, like);
+            pstmt.setString(2, pattern);
+            pstmt.setString(3, pattern);
+            pstmt.setString(4, pattern);
             try (ResultSet rs = pstmt.executeQuery()) {
                 while (rs.next()) list.add(mapResultSetToDocument(rs));
             }
@@ -78,7 +83,7 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     @Override
     public List<Document> getDocumentsByCategory(int userId, int categoryId) {
-        String sql = "SELECT * FROM documents WHERE user_id = ? AND category_id = ? ORDER BY upload_date DESC";
+        String sql = "SELECT d.*, c.category_name FROM documents d LEFT JOIN categories c ON d.category_id = c.category_id WHERE d.user_id = ? AND d.category_id = ? ORDER BY d.upload_date DESC";
         List<Document> list = new ArrayList<>();
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -98,7 +103,11 @@ public class DocumentDAOImpl implements DocumentDAO {
         String sql = "UPDATE documents SET category_id = ?, title = ?, description = ? WHERE document_id = ? AND user_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, doc.getCategoryId());
+            if (doc.getCategoryId() > 0) {
+                pstmt.setInt(1, doc.getCategoryId());
+            } else {
+                pstmt.setNull(1, Types.INTEGER);
+            }
             pstmt.setString(2, doc.getTitle());
             pstmt.setString(3, doc.getDescription());
             pstmt.setInt(4, doc.getDocumentId());
@@ -126,7 +135,7 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     @Override
     public boolean updateFavoriteStatus(int documentId, int userId, boolean favorite) {
-        String sql = "UPDATE documents SET favorite = ? WHERE document_id = ? AND user_id = ?";
+        String sql = "UPDATE documents SET is_favorite = ? WHERE document_id = ? AND user_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setBoolean(1, favorite);
@@ -146,12 +155,12 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     @Override
     public int getFavoriteCountByUser(int userId) {
-        return fetchCount("SELECT COUNT(*) FROM documents WHERE user_id = ? AND favorite = true", userId);
+        return fetchCount("SELECT COUNT(*) FROM documents WHERE user_id = ? AND is_favorite = 1", userId);
     }
 
     @Override
     public List<Document> getRecentDocuments(int userId, int limit) {
-        String sql = "SELECT * FROM documents WHERE user_id = ? ORDER BY upload_date DESC LIMIT ?";
+        String sql = "SELECT d.*, c.category_name FROM documents d LEFT JOIN categories c ON d.category_id = c.category_id WHERE d.user_id = ? ORDER BY d.upload_date DESC LIMIT ?";
         List<Document> list = new ArrayList<>();
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -168,7 +177,8 @@ public class DocumentDAOImpl implements DocumentDAO {
 
     @Override
     public List<Document> getFavoriteDocuments(int userId) {
-        return fetchList("SELECT * FROM documents WHERE user_id = ? AND favorite = true ORDER BY upload_date DESC", userId);
+        String sql = "SELECT d.*, c.category_name FROM documents d LEFT JOIN categories c ON d.category_id = c.category_id WHERE d.user_id = ? AND d.is_favorite = 1 ORDER BY d.upload_date DESC";
+        return fetchList(sql, userId);
     }
 
     private List<Document> fetchList(String sql, int userId) {
@@ -199,7 +209,7 @@ public class DocumentDAOImpl implements DocumentDAO {
     }
 
     private Document mapResultSetToDocument(ResultSet rs) throws SQLException {
-        return new Document(
+        Document doc = new Document(
             rs.getInt("document_id"),
             rs.getInt("user_id"),
             rs.getInt("category_id"),
@@ -210,7 +220,11 @@ public class DocumentDAOImpl implements DocumentDAO {
             rs.getString("mime_type"),
             rs.getLong("file_size"),
             rs.getTimestamp("upload_date") != null ? rs.getTimestamp("upload_date").toLocalDateTime() : null,
-            rs.getBoolean("favorite")
+            rs.getBoolean("is_favorite")
         );
+        try {
+            doc.setCategoryName(rs.getString("category_name"));
+        } catch (SQLException ignored) {}
+        return doc;
     }
 }

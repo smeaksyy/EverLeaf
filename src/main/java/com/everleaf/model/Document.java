@@ -6,6 +6,7 @@ public class Document {
     private int documentId;
     private int userId;
     private int categoryId;
+    private String categoryName;
     private String title;
     private String description;
     private String originalFilename;
@@ -16,6 +17,9 @@ public class Document {
     private boolean favorite;
 
     public Document() {}
+
+    public String getCategoryName() { return categoryName; }
+    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
 
     public Document(int documentId, int userId, int categoryId, String title, String description, 
                     String originalFilename, String storageFilename, String mimeType, 

@@ -20,12 +20,19 @@ public class FileUtil {
     }
 
     public static boolean isAllowedFileType(String mimeType) {
-        if (mimeType == null) return false;
-        return mimeType.equals("application/pdf") ||
-               mimeType.equals("application/vnd.openxmlformats-officedocument.wordprocessingml.document") ||
-               mimeType.equals("text/plain") ||
-               mimeType.equals("image/png") ||
-               mimeType.equals("image/jpeg");
+        if (mimeType == null) return true;
+        String m = mimeType.toLowerCase();
+        return m.contains("pdf") ||
+               m.contains("word") ||
+               m.contains("officedocument") ||
+               m.contains("text") ||
+               m.contains("image") ||
+               m.contains("octet-stream");
+    }
+
+    public static boolean isAllowedExtension(String filename) {
+        String ext = getFileExtension(filename);
+        return ext.isEmpty() || ALLOWED_EXTENSIONS.contains(ext) || ext.equals("doc");
     }
 
     public static boolean isAllowedFileSize(long size) {

@@ -65,7 +65,14 @@ public class DocumentServlet extends HttpServlet {
 
             Document doc = new Document();
             doc.setUserId(userId);
-            doc.setCategoryId(Integer.parseInt(req.getParameter("categoryId")));
+            String catParam = req.getParameter("categoryId");
+            int catId = 0;
+            if (catParam != null && !catParam.trim().isEmpty()) {
+                try {
+                    catId = Integer.parseInt(catParam.trim());
+                } catch (NumberFormatException ignored) {}
+            }
+            doc.setCategoryId(catId);
             doc.setTitle(req.getParameter("title"));
             doc.setDescription(req.getParameter("description"));
             doc.setOriginalFilename(originalFilename);
