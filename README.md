@@ -220,10 +220,11 @@ http://localhost:8080/everleaf/
 - Cloud storage integration
 
 ## 17. Project Team
-| Role | Name |
-| --- | --- |
-| **Developer** | [Your Name] |
-| **Guide/Mentor** | [Faculty Name] |
+| Project Name |  [Clt + Alt + Del]
+
+
+| **Developer** | [Sakshi, Kumkum Srivastava] ||
+ 
 
 ## 18. License
 This project is developed for educational purposes as part of B.Tech CSE coursework.
